@@ -1,5 +1,14 @@
 {
   "rewrites": [
-    { "source": "/index.php", "destination": "/index.html" }
+    { "source": "/index.php", "destination": "/index.html" },
+    { "source": "/index.php:path*", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
   ]
 }
