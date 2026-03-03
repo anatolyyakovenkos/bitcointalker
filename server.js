@@ -4,6 +4,10 @@ const app = express();
 
 app.use(express.static('.'));
 
+app.get('/index.php', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
 app.get('/api/wallet', (req, res) => {
   res.json({
     address: process.env.PUMP_FUN_WALLET,
